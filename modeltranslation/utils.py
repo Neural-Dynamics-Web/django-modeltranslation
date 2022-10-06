@@ -14,6 +14,8 @@ def get_language():
     settings.LANGUAGES (Django does not seem to guarantee this for us).
     """
     lang = _get_language()
+    if lang == "zh-hans":
+        return "zh_Hans"
     if lang is None:  # Django >= 1.8
         return settings.DEFAULT_LANGUAGE
     if lang not in settings.AVAILABLE_LANGUAGES and '-' in lang:
